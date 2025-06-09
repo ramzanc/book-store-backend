@@ -62,7 +62,7 @@ const deleteABook = async (req, res) => {
         const {id} = req.params;
         const deletedBook =  await Book.findByIdAndDelete(id);
         if(!deletedBook) {
-            res.status(404).send({message: "Book is not Found!"})
+            return res.status(404).send({message: "Book is not Found!"})
         }
         return res.status(200).send({
             message: "Book deleted successfully",
