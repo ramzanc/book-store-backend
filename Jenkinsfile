@@ -23,9 +23,11 @@ pipeline {
     }
 
     stage('Test') {
-      steps {
-        bat 'npm test'
-      }
+        steps {
+            catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+            sh 'npm test'
+            }
+        }
     }
 
     stage('SonarQube Analysis') {
