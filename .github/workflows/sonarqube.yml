@@ -29,9 +29,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           npx sonar-scanner \
-            -Dsonar.projectKey=my-node-app \
-            -Dsonar.sources=. \
             -Dsonar.host.url=https://555b-103-97-243-149.ngrok-free.app \
-            -Dsonar.login=${SONAR_TOKEN} \
-            -Dsonar.branch.name=${{ github.head_ref }}
+            -Dsonar.login=${SONAR_TOKEN}
 
