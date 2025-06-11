@@ -29,5 +29,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           npx sonar-scanner \
-            -Dsonar.host.url=https://555b-103-97-243-149.ngrok-free.app:9000 \
+            -Dsonar.host.url=https://555b-103-97-243-149.ngrok-free.app \
             -Dsonar.login=$SONAR_TOKEN
