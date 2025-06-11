@@ -31,3 +31,4 @@ jobs:
           npx sonar-scanner \
             -Dsonar.host.url=https://555b-103-97-243-149.ngrok-free.app \
             -Dsonar.login=$SONAR_TOKEN
+            -Dsonar.branch.name=${{ github.head_ref }}
