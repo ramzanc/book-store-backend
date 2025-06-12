@@ -27,8 +27,11 @@ jobs:
       - name: Run SonarQube Scanner
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          BRANCH_NAME: ${{ github.head_ref }}
         run: |
           npx sonar-scanner \
             -Dsonar.host.url=https://555b-103-97-243-149.ngrok-free.app \
             -Dsonar.login=${SONAR_TOKEN}
+            # -Dsonar.branch.name=${BRANCH_NAME}
+
 
