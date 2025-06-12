@@ -22,7 +22,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          npm run test:cov || true
+          npm run test:cov || echo "⚠️ Tests failed, continuing for SonarQube analysis..."
 
       - name: Run SonarQube Scanner
         env:
@@ -30,8 +30,11 @@ jobs:
           BRANCH_NAME: ${{ github.head_ref }}
         run: |
           npx sonar-scanner \
+            -Dsonar.projectKey=node-sonarqube-demo \
             -Dsonar.host.url=https://1c2a-2401-4900-8fcb-5463-9001-dfbd-a890-98b0.ngrok-free.app \
             -Dsonar.login=${SONAR_TOKEN} \
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+            -Dsonar.sources=src \
+            -Dsonar.tests=tests \
 
 
