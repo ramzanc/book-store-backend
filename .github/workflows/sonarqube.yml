@@ -31,6 +31,6 @@ jobs:
         run: |
           npx sonar-scanner \
             -Dsonar.host.url=https://1c2a-2401-4900-8fcb-5463-9001-dfbd-a890-98b0.ngrok-free.app \
-            -Dsonar.login=${SONAR_TOKEN}
+            -Dsonar.login=${SONAR_TOKEN} \
 
 
